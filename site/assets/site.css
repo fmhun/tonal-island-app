@@ -1,8 +1,5 @@
 html { background: #101413; color-scheme: dark; }
     body { margin: 0; min-height: 100vh; }
-    .site-footer { display: flex; justify-content: center; padding: 0 24px 32px;
-      color: #a9b4af; font: 14px/24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    .site-footer a { color: inherit; text-underline-offset: 4px; }
     .credits { max-width: 720px; padding: 48px 24px; margin: auto; color: #f1f4f2;
       font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     .credits h1 { font-size: 32px; line-height: 1.2; letter-spacing: -.03em; }
@@ -77,15 +74,15 @@ html { background: #101413; color-scheme: dark; }
     #tonal-site-v2 .ti-native-content { position: absolute; inset: 0; overflow: hidden; }
     #tonal-site-v2 .ti-native-backdrop { position: absolute; inset: 0; background: #000; }
     #tonal-site-v2 .ti-expanded-image, #tonal-site-v2 .ti-compact-image { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: var(--ti-native-width); max-width: none; height: auto; display: block; }
-    #tonal-site-v2 .ti-stage[data-mode="menu"] .ti-native { top: var(--ti-menu-height); left: auto; right: 8px; transform: none; }
+    #tonal-site-v2 .ti-stage[data-mode="menu"] .ti-native { top: var(--ti-menu-height); left: auto; right: 0; transform: none; }
     #tonal-site-v2 .ti-stage[data-mode="menu"][data-visible="false"] .ti-native { visibility: hidden; }
     #tonal-site-v2 .ti-island-trigger { position: absolute; z-index: 5; border: 0; padding: 0; background: transparent; top: 0; width: min(var(--ti-native-width), 100%); height: calc(var(--ti-native-width) * 32 / 680); left: 50%; transform: translateX(-50%); border-radius: 0 0 8px 8px; }
     #tonal-site-v2 .ti-stage[data-open="true"] .ti-island-trigger { width: var(--ti-native-width); height: calc(var(--ti-native-width) * 208 / 680); }
-    #tonal-site-v2 .ti-stage[data-mode="menu"] .ti-island-trigger { top: var(--ti-menu-height); left: auto; right: 8px; transform: none; }
+    #tonal-site-v2 .ti-stage[data-mode="menu"] .ti-island-trigger { top: var(--ti-menu-height); left: auto; right: 0; transform: none; }
     #tonal-site-v2 .ti-stage[data-mode="menu"][data-visible="false"] .ti-island-trigger { display: none; }
     #tonal-site-v2 .ti-demo-footer { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-top: 16px; }
-    #tonal-site-v2 .ti-philosophy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--ti-line); }
-    #tonal-site-v2 .ti-philosophy h2 { max-width: 280px; font-size: 32px; line-height: 36px; font-weight: 500; letter-spacing: -.025em; text-wrap: balance; }
+    #tonal-site-v2 .ti-info-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--ti-line); }
+    #tonal-site-v2 .ti-info-section h2 { max-width: 280px; font-size: 32px; line-height: 36px; font-weight: 500; letter-spacing: -.025em; text-wrap: balance; }
     #tonal-site-v2 .ti-philosophy-copy { max-width: 640px; min-width: 0; }
     #tonal-site-v2 .ti-philosophy-copy > p { font-size: 16px; line-height: 28px; color: var(--ti-secondary); }
     #tonal-site-v2 .ti-philosophy-copy > p + p { margin-top: 16px; }
@@ -290,170 +287,9 @@ html { background: #101413; color-scheme: dark; }
   pointer-events: none;
 }
 
-    #tonal-site-v2 .ti-configuration {
-  max-width: 100%;
-  margin-top: 64px;
-  padding-top: 32px;
-  padding-bottom: 48px;
-  border-top: 1px solid var(--ti-line);
-}
-
-#tonal-site-v2 .ti-config-header {
-  margin-bottom: 32px;
-}
-
-#tonal-site-v2 .ti-config-header h2 {
-  margin: 0;
-  color: var(--ti-text);
-  font-size: 32px;
-  line-height: 36px;
-  font-weight: 500;
-  letter-spacing: -.025em;
-}
-
-#tonal-site-v2 .ti-config-header p {
-  margin: 12px 0 0;
-  color: var(--ti-secondary);
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-}
-
-#tonal-site-v2 .ti-config-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: start;
-  gap: 48px;
-  max-width: 100%;
-}
-
-#tonal-site-v2 .ti-config-preview-panel {
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  padding: 24px;
-  border: 1px solid var(--ti-line);
-  border-radius: 12px;
-  background: #151b18;
-}
-
-#tonal-site-v2 .ti-config-preview-label {
-  margin: 0;
-  color: var(--ti-secondary);
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-#tonal-site-v2 .ti-config-preview {
-  min-width: 0;
-  padding-top: 20px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--ti-line);
-}
-
-#tonal-site-v2 .ti-config-preview-notes {
-  margin: 0;
-  color: var(--ti-text);
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -.02em;
-}
-
-#tonal-site-v2 .ti-config-preview-interval {
-  margin: 4px 0 0;
-  color: var(--ti-mint);
-  font-size: 20px;
-  line-height: 28px;
-  font-weight: 400;
-}
-
-#tonal-site-v2 .ti-config-controls {
-  display: grid;
-  gap: 16px;
-  min-width: 0;
-  margin-top: 24px;
-}
-
-#tonal-site-v2 .ti-config-field {
-  min-width: 0;
-}
-
-#tonal-site-v2 .ti-config-field label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--ti-text);
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-#tonal-site-v2 .ti-config-select {
-  position: relative;
-  min-width: 0;
-}
-
-#tonal-site-v2 .ti-config-select::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 5px);
-  right: 17px;
-  width: 8px;
-  height: 8px;
-  border-right: 1.5px solid var(--ti-secondary);
-  border-bottom: 1.5px solid var(--ti-secondary);
-  transform: rotate(45deg);
-  pointer-events: none;
-}
-
-#tonal-site-v2 .ti-config-select select {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  min-height: 44px;
-  padding: 9px 40px 9px 12px;
-  border: 1px solid var(--ti-line);
-  border-radius: 8px;
-  appearance: none;
-  background: var(--ti-bg);
-  color: var(--ti-text);
-  font-family: inherit;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-}
-
-#tonal-site-v2 .ti-config-select select:hover {
-  border-color: #50635a;
-}
-
-#tonal-site-v2 .ti-config-select select:focus-visible,
-#tonal-site-v2 .ti-config-checkbox input:focus-visible {
-  outline: 2px solid var(--ti-mint);
-  outline-offset: 4px;
-}
-
-#tonal-site-v2 .ti-config-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 44px;
-  color: var(--ti-text);
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-}
-
-#tonal-site-v2 .ti-config-checkbox input {
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  accent-color: var(--ti-mint);
-}
+#tonal-site-v2 .ti-configuration { padding-bottom: 48px; }
+#tonal-site-v2 .ti-config-content { min-width: 0; max-width: 640px; }
+#tonal-site-v2 .ti-config-intro { margin: 0 0 24px; color: var(--ti-secondary); font-size: 16px; line-height: 28px; }
 
 #tonal-site-v2 .ti-config-capabilities {
   min-width: 0;
@@ -506,27 +342,6 @@ html { background: #101413; color-scheme: dark; }
   font-weight: 400;
 }
 
-@media (max-width: 740px) {
-  #tonal-site-v2 .ti-configuration {
-    margin-top: 48px;
-    padding-top: 24px;
-  }
-
-  #tonal-site-v2 .ti-config-header h2 {
-    font-size: 28px;
-    line-height: 32px;
-  }
-
-  #tonal-site-v2 .ti-config-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
-  }
-
-  #tonal-site-v2 .ti-config-header {
-    margin-bottom: 24px;
-  }
-}
-
     @media (max-width: 740px) {
       #tonal-site-v2 .ti-container { padding-inline: 20px; }
       #tonal-site-v2 .ti-header { min-height: 72px; }
@@ -537,8 +352,8 @@ html { background: #101413; color-scheme: dark; }
       #tonal-site-v2 .ti-actions { margin-top: 24px; }
       #tonal-site-v2 .ti-demo { padding-top: 48px; }
       #tonal-site-v2 .ti-stage { height: 288px; }
-      #tonal-site-v2 .ti-philosophy { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; padding-top: 24px; }
-      #tonal-site-v2 .ti-philosophy h2 { max-width: none; font-size: 28px; line-height: 32px; }
+      #tonal-site-v2 .ti-info-section { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; padding-top: 24px; }
+      #tonal-site-v2 .ti-info-section h2 { max-width: none; font-size: 28px; line-height: 32px; }
     }
     @media (max-width: 480px) {
       #tonal-site-v2 .ti-header { gap: 12px; }

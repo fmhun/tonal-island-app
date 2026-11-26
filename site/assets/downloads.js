@@ -20,7 +20,7 @@ try {
     }
     const architectures = release.architectures.map(value => ({arm64:'Apple Silicon', x86_64:'Intel'}[value] || value)).join(' + ');
     for (const detail of details) {
-      detail.replaceChildren(`${release.tag} · ${architectures} · macOS ${release.minimumMacOS}+${adhoc ? ' · Not notarized' : ''}`);
+      detail.replaceChildren(`${release.tag} · ${architectures} · macOS ${release.minimumMacOS}+`);
       if (detail.matches('.ti-requirements')) {
         const guide = document.createElement('a');
         guide.href = './installation.html';
