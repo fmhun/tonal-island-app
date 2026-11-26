@@ -1,0 +1,591 @@
+html { background: #101413; color-scheme: dark; }
+    body { margin: 0; min-height: 100vh; }
+    .site-footer { display: flex; justify-content: center; padding: 0 24px 32px;
+      color: #a9b4af; font: 14px/24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .site-footer a { color: inherit; text-underline-offset: 4px; }
+    .credits { max-width: 720px; padding: 48px 24px; margin: auto; color: #f1f4f2;
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .credits h1 { font-size: 32px; line-height: 1.2; letter-spacing: -.03em; }
+    .credits a { color: #ade8d5; text-underline-offset: 4px; }
+    .credits li { margin-block: 16px; }
+    a:focus-visible { outline: 2px solid #ade8d5; outline-offset: 4px; }
+#tonal-site-v2 {
+      --ti-bg: #101413;
+      --ti-text: #f1f4f2;
+      --ti-secondary: #a9b4af;
+      --ti-line: #303b36;
+      --ti-mint: #ade8d5;
+      --ti-ink: #10251d;
+      --ti-space: 4px;
+      color-scheme: dark;
+      color: var(--ti-text);
+      background: var(--ti-bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
+      text-align: left;
+      isolation: isolate;
+      -webkit-font-smoothing: antialiased;
+    }
+    #tonal-site-v2 *, #tonal-site-v2 *::before, #tonal-site-v2 *::after { box-sizing: border-box; }
+    #tonal-site-v2 [hidden] { display: none !important; }
+    #tonal-site-v2 h1, #tonal-site-v2 h2, #tonal-site-v2 p { margin: 0; }
+    #tonal-site-v2 button, #tonal-site-v2 a { font: inherit; -webkit-tap-highlight-color: transparent; }
+    #tonal-site-v2 a { color: inherit; text-decoration: none; }
+    #tonal-site-v2 button { cursor: pointer; }
+    #tonal-site-v2 button:focus-visible, #tonal-site-v2 a:focus-visible { outline: 2px solid var(--ti-mint); outline-offset: 4px; }
+    #tonal-site-v2 .ti-container { width: min(100%, 1104px); padding-inline: 32px; margin-inline: auto; }
+    #tonal-site-v2 .ti-header { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    #tonal-site-v2 .ti-brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; font-size: 18px; line-height: 24px; font-weight: 500; letter-spacing: -.025em; }
+    #tonal-site-v2 .ti-brand img { width: 32px; height: 32px; display: block; }
+    #tonal-site-v2 .ti-nav { display: flex; align-items: center; gap: 24px; font-size: 14px; line-height: 20px; color: var(--ti-secondary); }
+    #tonal-site-v2 .ti-nav a { padding-block: 12px; }
+    #tonal-site-v2 .ti-nav a:hover { color: var(--ti-text); }
+    #tonal-site-v2 .ti-intro { padding-top: 64px; text-align: center; max-width: 920px; margin-inline: auto; }
+    #tonal-site-v2 .ti-release { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    #tonal-site-v2 .ti-alpha-badge { display: inline-block; flex-shrink: 0; padding: 4px 12px; border-radius: 8px; background: var(--ti-mint); color: var(--ti-ink); font-size: 12px; line-height: 20px; font-weight: 500; letter-spacing: .12em; box-shadow: 0 0 0 4px #ade8d50a, 0 0 32px #ade8d51f; }
+    #tonal-site-v2 .ti-release-copy { color: var(--ti-secondary); font-size: 14px; line-height: 20px; }
+    #tonal-site-v2 h1 { font-size: 56px; line-height: 60px; letter-spacing: -.03em; font-weight: 500; text-wrap: balance; }
+    #tonal-site-v2 .ti-title-accent { color: var(--ti-mint); }
+    #tonal-site-v2 .ti-lead { max-width: 560px; margin: 24px auto 0; color: var(--ti-secondary); font-size: 18px; line-height: 28px; text-wrap: pretty; }
+    #tonal-site-v2 .ti-actions { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 32px; }
+    #tonal-site-v2 .ti-download { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 20px; border: 0; border-radius: 8px; background: var(--ti-mint); color: var(--ti-ink); font-size: 16px; line-height: 24px; font-weight: 500; }
+    #tonal-site-v2 .ti-download:hover { background: #c1f0e1; }
+    #tonal-site-v2 .ti-requirements { margin-top: 12px; font-size: 12px; line-height: 20px; color: var(--ti-secondary); }
+    #tonal-site-v2 .ti-download-note { margin-top: 8px; font-size: 13px; line-height: 20px; color: var(--ti-secondary); }
+    #tonal-site-v2 .ti-demo { padding-top: 64px; }
+    #tonal-site-v2 .ti-demo-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+    #tonal-site-v2 .ti-modes { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--ti-line); border-radius: 12px; }
+    #tonal-site-v2 .ti-mode { border: 0; border-radius: 8px; background: transparent; color: var(--ti-secondary); padding: 8px 16px; font-size: 14px; line-height: 20px; font-weight: 500; min-height: 44px; }
+    #tonal-site-v2 .ti-mode[aria-selected="true"] { background: #29342e; color: var(--ti-text); }
+    #tonal-site-v2 .ti-macbook { position: relative; padding: 3px 3px 0; border-radius: 36px 36px 0 0; background: linear-gradient(112deg, #414748 0%, #979e9e 17%, #4c5354 38%, #252b2c 64%, #727a7a 87%, #343b3b 100%); box-shadow: inset 0 1px 0 #d0d7d766, inset 1px 0 0 #d0d7d733, inset -1px 0 0 #0008; -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); }
+    #tonal-site-v2 .ti-macbook::before { content: ""; position: absolute; z-index: 7; inset: 1px 1px 0; border: 1px solid #090b0c; border-bottom: 0; border-radius: 35px 35px 0 0; pointer-events: none; }
+    #tonal-site-v2 .ti-display-bezel { position: relative; padding: 11px 10px 0; border-radius: 33px 33px 0 0; background: #050707; box-shadow: inset 0 1px 0 #cbd1d126, inset 2px 0 0 #ffffff06, inset -2px 0 0 #ffffff06; }
+    #tonal-site-v2 .ti-stage { --ti-native-width: 680px; --ti-menu-height: 32px; --ti-menu-font: 12px; --ti-menu-line: 16px; --ti-menu-gap: 16px; --ti-menu-padding: 16px; --ti-apple-font: 17px; position: relative; height: 288px; overflow: hidden; border: 0; border-radius: 23px 23px 0 0; background: #21352d; }
+    #tonal-site-v2 .ti-wallpaper { position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 110%, #537363 0, transparent 64%), radial-gradient(ellipse at 82% 80%, #2c5142 0, transparent 63%), linear-gradient(165deg, #1c302a 0%, #416151 58%, #233a31 100%); }
+    #tonal-site-v2 .ti-wallpaper::after { content: ""; position: absolute; inset: var(--ti-menu-height) 0 0; background: linear-gradient(180deg, transparent 0%, #14251d44 100%); }
+    #tonal-site-v2 .ti-menubar { position: absolute; z-index: 1; height: var(--ti-menu-height); inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; padding-inline: var(--ti-menu-padding); background: #263d33dd; color: #f1f4f2; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: var(--ti-menu-font); line-height: var(--ti-menu-line); }
+    #tonal-site-v2 .ti-menu-left { display: flex; align-items: center; gap: var(--ti-menu-gap); font-weight: 500; }
+    #tonal-site-v2 .ti-apple { font-size: var(--ti-apple-font); line-height: var(--ti-menu-line); }
+    #tonal-site-v2 .ti-menu-right { display: flex; align-items: center; gap: var(--ti-menu-gap); }
+    #tonal-site-v2 .ti-menu-interval { display: block; border: 0; background: transparent; color: inherit; padding: 0 4px; min-height: var(--ti-menu-height); }
+    #tonal-site-v2 .ti-menu-interval img { display: block; width: auto; height: var(--ti-menu-height); }
+    #tonal-site-v2 .ti-notch { position: absolute; z-index: 3; width: calc(var(--ti-native-width) * 185 / 680); height: calc(var(--ti-native-width) * 32 / 680); top: 0; left: 50%; transform: translateX(-50%); border-radius: 0 0 calc(var(--ti-native-width) * 12 / 680) calc(var(--ti-native-width) * 12 / 680); background: #000; pointer-events: none; }
+    #tonal-site-v2 .ti-camera { position: absolute; z-index: 6; left: 50%; top: calc(var(--ti-menu-height) * .32); transform: translateX(-50%); width: max(3px, calc(var(--ti-native-width) * 5 / 680)); height: max(3px, calc(var(--ti-native-width) * 5 / 680)); border-radius: 50%; background: radial-gradient(circle at 40% 35%, #204354 0%, #0b1d2b 28%, #03070b 60%, #000 100%); box-shadow: 0 0 0 1px #141a1e; pointer-events: none; }
+    #tonal-site-v2 .ti-native { position: absolute; z-index: 4; top: 0; left: 50%; transform: translateX(-50%); pointer-events: none; filter: drop-shadow(0 12px 18px #0003); }
+    #tonal-site-v2 .ti-native-content { position: absolute; inset: 0; overflow: hidden; }
+    #tonal-site-v2 .ti-native-backdrop { position: absolute; inset: 0; background: #000; }
+    #tonal-site-v2 .ti-expanded-image, #tonal-site-v2 .ti-compact-image { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: var(--ti-native-width); max-width: none; height: auto; display: block; }
+    #tonal-site-v2 .ti-stage[data-mode="menu"] .ti-native { top: var(--ti-menu-height); left: auto; right: 8px; transform: none; }
+    #tonal-site-v2 .ti-stage[data-mode="menu"][data-visible="false"] .ti-native { visibility: hidden; }
+    #tonal-site-v2 .ti-island-trigger { position: absolute; z-index: 5; border: 0; padding: 0; background: transparent; top: 0; width: min(var(--ti-native-width), 100%); height: calc(var(--ti-native-width) * 32 / 680); left: 50%; transform: translateX(-50%); border-radius: 0 0 8px 8px; }
+    #tonal-site-v2 .ti-stage[data-open="true"] .ti-island-trigger { width: var(--ti-native-width); height: calc(var(--ti-native-width) * 208 / 680); }
+    #tonal-site-v2 .ti-stage[data-mode="menu"] .ti-island-trigger { top: var(--ti-menu-height); left: auto; right: 8px; transform: none; }
+    #tonal-site-v2 .ti-stage[data-mode="menu"][data-visible="false"] .ti-island-trigger { display: none; }
+    #tonal-site-v2 .ti-demo-footer { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-top: 16px; }
+    #tonal-site-v2 .ti-philosophy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--ti-line); }
+    #tonal-site-v2 .ti-philosophy h2 { max-width: 280px; font-size: 32px; line-height: 36px; font-weight: 500; letter-spacing: -.025em; text-wrap: balance; }
+    #tonal-site-v2 .ti-philosophy-copy { max-width: 640px; min-width: 0; }
+    #tonal-site-v2 .ti-philosophy-copy > p { font-size: 16px; line-height: 28px; color: var(--ti-secondary); }
+    #tonal-site-v2 .ti-philosophy-copy > p + p { margin-top: 16px; }
+    #tonal-site-v2 .ti-roadmap { margin-top: 24px; padding-left: 16px; border-left: 2px solid var(--ti-mint); }
+    #tonal-site-v2 .ti-roadmap-title { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+    #tonal-site-v2 .ti-roadmap h3 { margin: 0; font-size: 18px; line-height: 24px; font-weight: 500; letter-spacing: -.015em; }
+    #tonal-site-v2 .ti-planned { display: inline-block; padding: 4px 8px; border: 1px solid var(--ti-line); border-radius: 4px; color: var(--ti-mint); font-size: 12px; line-height: 20px; }
+    #tonal-site-v2 .ti-roadmap p { margin-top: 8px; font-size: 14px; line-height: 24px; color: var(--ti-secondary); }
+    #tonal-site-v2 .ti-midi-demo {
+  --ti-roll-columns: 8;
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+#tonal-site-v2 .ti-midi-toolbar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-bottom: 8px;
+}
+
+#tonal-site-v2 .ti-midi-label {
+  flex: 0 0 auto;
+  color: var(--ti-secondary);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+#tonal-site-v2 .ti-playback-notes {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ti-text);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#tonal-site-v2 .ti-playback-toggle,
+#tonal-site-v2 .ti-sound-toggle {
+  flex: 0 0 auto;
+  min-width: 64px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--ti-line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ti-text);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+#tonal-site-v2 .ti-playback-toggle:hover,
+#tonal-site-v2 .ti-sound-toggle:hover {
+  background: #213027;
+}
+
+#tonal-site-v2 .ti-playback-toggle:disabled,
+#tonal-site-v2 .ti-sound-toggle:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+#tonal-site-v2 .ti-sound-toggle[aria-pressed="true"] {
+  background: #29342e;
+}
+
+#tonal-site-v2 .ti-piano-roll {
+  position: relative;
+  width: 100%;
+  height: 156px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #18211c;
+}
+
+#tonal-site-v2 .ti-piano-roll::after {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  border: 1px solid var(--ti-line);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+#tonal-site-v2 .ti-roll-keys {
+  position: absolute;
+  z-index: 2;
+  inset: 0 auto 0 0;
+  width: 40px;
+  overflow: hidden;
+  background: #d4ddd6;
+  border-right: 1px solid #52695a;
+}
+
+#tonal-site-v2 .ti-roll-key {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 6px;
+  border-top: 1px solid #87978d;
+  background: #d4ddd6;
+  color: #24362a;
+  font-size: 11px;
+  line-height: 12px;
+  font-weight: 500;
+  user-select: none;
+}
+
+#tonal-site-v2 .ti-roll-key.is-black {
+  z-index: 3;
+  left: 40%;
+  width: 60%;
+  padding: 0;
+  border: 1px solid #31443a;
+  border-right: 0;
+  border-radius: 3px 0 0 3px;
+  background: #0b120e;
+}
+
+#tonal-site-v2 .ti-roll-key span {
+  position: absolute;
+  left: 6px;
+  transform: translateY(-50%);
+}
+
+#tonal-site-v2 .ti-roll-key.is-active {
+  background: var(--ti-mint);
+  color: var(--ti-ink);
+}
+
+#tonal-site-v2 .ti-roll-key.is-black.is-active {
+  background: #68b397;
+}
+
+#tonal-site-v2 .ti-roll-grid {
+  position: absolute;
+  inset: 0 0 0 40px;
+  overflow: hidden;
+  background: #18211c;
+}
+
+#tonal-site-v2 .ti-roll-lane {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #26362c;
+  background: #18211c;
+}
+
+#tonal-site-v2 .ti-roll-lane.is-black {
+  background: #111914;
+}
+
+#tonal-site-v2 .ti-roll-notes {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image: linear-gradient(to right, #34483b 1px, transparent 1px);
+  background-size: calc(100% / var(--ti-roll-columns)) 100%;
+  pointer-events: none;
+}
+
+#tonal-site-v2 .ti-roll-note {
+  position: absolute;
+  min-width: 2px;
+  border-radius: 2px;
+  background: #466b57;
+  pointer-events: none;
+}
+
+#tonal-site-v2 .ti-roll-note.is-past {
+  background: #304b3c;
+}
+
+#tonal-site-v2 .ti-roll-note.is-active {
+  background: var(--ti-mint);
+}
+
+#tonal-site-v2 .ti-playhead {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: var(--ti-mint);
+  pointer-events: none;
+}
+
+    #tonal-site-v2 .ti-configuration {
+  max-width: 100%;
+  margin-top: 64px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  border-top: 1px solid var(--ti-line);
+}
+
+#tonal-site-v2 .ti-config-header {
+  margin-bottom: 32px;
+}
+
+#tonal-site-v2 .ti-config-header h2 {
+  margin: 0;
+  color: var(--ti-text);
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+
+#tonal-site-v2 .ti-config-header p {
+  margin: 12px 0 0;
+  color: var(--ti-secondary);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+#tonal-site-v2 .ti-config-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 48px;
+  max-width: 100%;
+}
+
+#tonal-site-v2 .ti-config-preview-panel {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding: 24px;
+  border: 1px solid var(--ti-line);
+  border-radius: 12px;
+  background: #151b18;
+}
+
+#tonal-site-v2 .ti-config-preview-label {
+  margin: 0;
+  color: var(--ti-secondary);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+#tonal-site-v2 .ti-config-preview {
+  min-width: 0;
+  padding-top: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--ti-line);
+}
+
+#tonal-site-v2 .ti-config-preview-notes {
+  margin: 0;
+  color: var(--ti-text);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+
+#tonal-site-v2 .ti-config-preview-interval {
+  margin: 4px 0 0;
+  color: var(--ti-mint);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+#tonal-site-v2 .ti-config-controls {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  margin-top: 24px;
+}
+
+#tonal-site-v2 .ti-config-field {
+  min-width: 0;
+}
+
+#tonal-site-v2 .ti-config-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ti-text);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+#tonal-site-v2 .ti-config-select {
+  position: relative;
+  min-width: 0;
+}
+
+#tonal-site-v2 .ti-config-select::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 17px;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--ti-secondary);
+  border-bottom: 1.5px solid var(--ti-secondary);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+#tonal-site-v2 .ti-config-select select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 9px 40px 9px 12px;
+  border: 1px solid var(--ti-line);
+  border-radius: 8px;
+  appearance: none;
+  background: var(--ti-bg);
+  color: var(--ti-text);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+#tonal-site-v2 .ti-config-select select:hover {
+  border-color: #50635a;
+}
+
+#tonal-site-v2 .ti-config-select select:focus-visible,
+#tonal-site-v2 .ti-config-checkbox input:focus-visible {
+  outline: 2px solid var(--ti-mint);
+  outline-offset: 4px;
+}
+
+#tonal-site-v2 .ti-config-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  color: var(--ti-text);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+#tonal-site-v2 .ti-config-checkbox input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--ti-mint);
+}
+
+#tonal-site-v2 .ti-config-capabilities {
+  min-width: 0;
+  max-width: 100%;
+}
+
+#tonal-site-v2 .ti-config-row {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--ti-line);
+}
+
+#tonal-site-v2 .ti-config-row:first-child {
+  padding-top: 0;
+}
+
+#tonal-site-v2 .ti-config-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+#tonal-site-v2 .ti-config-row-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+#tonal-site-v2 .ti-config-row h3 {
+  margin: 0;
+  color: var(--ti-text);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+#tonal-site-v2 .ti-config-example {
+  margin: 0;
+  color: var(--ti-secondary);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+#tonal-site-v2 .ti-config-row-body {
+  margin: 8px 0 0;
+  color: var(--ti-secondary);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+@media (max-width: 740px) {
+  #tonal-site-v2 .ti-configuration {
+    margin-top: 48px;
+    padding-top: 24px;
+  }
+
+  #tonal-site-v2 .ti-config-header h2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  #tonal-site-v2 .ti-config-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  #tonal-site-v2 .ti-config-header {
+    margin-bottom: 24px;
+  }
+}
+
+    @media (max-width: 740px) {
+      #tonal-site-v2 .ti-container { padding-inline: 20px; }
+      #tonal-site-v2 .ti-header { min-height: 72px; }
+      #tonal-site-v2 .ti-nav { gap: 16px; }
+      #tonal-site-v2 .ti-intro { padding-top: 40px; }
+      #tonal-site-v2 h1 { font-size: 40px; line-height: 44px; }
+      #tonal-site-v2 .ti-lead { font-size: 16px; line-height: 24px; max-width: 440px; margin-top: 16px; }
+      #tonal-site-v2 .ti-actions { margin-top: 24px; }
+      #tonal-site-v2 .ti-demo { padding-top: 48px; }
+      #tonal-site-v2 .ti-stage { height: 288px; }
+      #tonal-site-v2 .ti-philosophy { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; padding-top: 24px; }
+      #tonal-site-v2 .ti-philosophy h2 { max-width: none; font-size: 28px; line-height: 32px; }
+    }
+    @media (max-width: 480px) {
+      #tonal-site-v2 .ti-header { gap: 12px; }
+      #tonal-site-v2 .ti-nav { font-size: 13px; gap: 12px; }
+      #tonal-site-v2 .ti-brand { gap: 8px; font-size: 16px; }
+      #tonal-site-v2 .ti-brand img { width: 28px; height: 28px; }
+      #tonal-site-v2 h1 { font-size: 36px; line-height: 40px; }
+      #tonal-site-v2 .ti-release-copy { font-size: 12px; }
+      #tonal-site-v2 .ti-download { width: 100%; }
+      #tonal-site-v2 .ti-macbook { padding: 2px 2px 0; border-radius: 24px 24px 0 0; }
+      #tonal-site-v2 .ti-macbook::before { border-radius: 23px 23px 0 0; }
+      #tonal-site-v2 .ti-display-bezel { padding: 8px 6px 0; border-radius: 22px 22px 0 0; }
+      #tonal-site-v2 .ti-stage { height: 208px; border-radius: 16px 16px 0 0; }
+      #tonal-site-v2 .ti-demo-toolbar { gap: 12px; }
+      #tonal-site-v2 .ti-modes { width: 100%; }
+      #tonal-site-v2 .ti-mode { flex: 1; min-height: 44px; padding-inline: 12px; }
+      #tonal-site-v2 .ti-demo-footer { gap: 16px; flex-direction: column; }
+      #tonal-site-v2 .ti-roadmap h3 { font-size: 16px; line-height: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #tonal-site-v2 *, #tonal-site-v2 *::before, #tonal-site-v2 *::after { scroll-behavior: auto; }
+    }
+
+#tonal-site-v2 .ti-sound-toggle { min-width: 92px; }
+#tonal-site-v2 .ti-audio-notice { margin-bottom: 8px; font-size: 13px; line-height: 20px; color: var(--ti-secondary); }
+@media (max-width: 480px) {
+  #tonal-site-v2 .ti-midi-toolbar { grid-template-columns: minmax(0, 1fr) auto auto; gap: 0 8px; }
+  #tonal-site-v2 .ti-midi-label { grid-column: 1; grid-row: 1; }
+  #tonal-site-v2 .ti-playback-notes { grid-column: 1; grid-row: 2; }
+  #tonal-site-v2 .ti-playback-toggle { grid-column: 2; grid-row: 1 / 3; }
+  #tonal-site-v2 .ti-sound-toggle { grid-column: 3; grid-row: 1 / 3; }
+}
+
+#tonal-site-v2 .ti-expanded-values, #tonal-site-v2 .ti-compact-values { position: absolute; top: 0; left: 50%; width: var(--ti-native-width); height: calc(var(--ti-native-width) * 208 / 680); transform: translateX(-50%); pointer-events: none; }
+#tonal-site-v2 .ti-expanded-values img, #tonal-site-v2 .ti-compact-values img { display: block; position: absolute; max-width: none; height: auto; }
+#tonal-site-v2 .ti-track-bar { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 16px 24px; padding-bottom: 16px; margin-bottom: 8px; border-bottom: 1px solid var(--ti-line); }
+#tonal-site-v2 .ti-track-meta { min-width: 0; }
+#tonal-site-v2 .ti-track-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
+#tonal-site-v2 .ti-track-counter { color: var(--ti-secondary); font-size: 12px; line-height: 20px; font-variant-numeric: tabular-nums; }
+#tonal-site-v2 .ti-track-title { color: var(--ti-text); font-size: 16px; line-height: 24px; font-weight: 500; }
+#tonal-site-v2 .ti-track-credit { margin-top: 4px; color: var(--ti-secondary); font-size: 13px; line-height: 20px; }
+#tonal-site-v2 .ti-track-source { text-decoration: underline; text-underline-offset: 3px; }
+#tonal-site-v2 .ti-track-source:hover { color: var(--ti-text); }
+#tonal-site-v2 .ti-track-navigation { display: flex; gap: 8px; }
+#tonal-site-v2 .ti-track-navigation button { min-height: 44px; min-width: 80px; padding: 8px 16px; border: 1px solid var(--ti-line); border-radius: 8px; color: var(--ti-text); background: transparent; font-size: 14px; line-height: 24px; font-weight: 500; }
+#tonal-site-v2 .ti-track-navigation button:hover { background: #213027; }
+@media(max-width:580px) {
+  #tonal-site-v2 .ti-track-bar { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  #tonal-site-v2 .ti-track-navigation button { flex: 1; }
+}
