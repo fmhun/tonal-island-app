@@ -6,7 +6,7 @@ An interactive introduction to Tonal Island, a macOS companion for understanding
 
 This repository contains the maintained public static website and macOS distributables attached to GitHub Releases. The application is developed separately. Early alpha builds may use local ad-hoc signing without Apple notarization; the installation guide explains this distribution and the first-launch procedure.
 
-The demo includes ten musical excerpts, adapted from public-domain editions published by the Mutopia Project. Sound is synthesized locally in the browser. See [music credits](https://fmhun.github.io/tonal-island-app/music-credits.html).
+The demo uses an excerpt from Beethoven’s Für Elise, adapted from the public-domain edition published by the Mutopia Project. Sound is synthesized locally in the browser. See [music credits](https://fmhun.github.io/tonal-island-app/music-credits.html).
 
 GitHub Pages deploys only `site/`, using the workflow in `.github/workflows/pages.yml`, when changes are pushed to `main`.
 

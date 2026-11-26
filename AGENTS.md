@@ -14,4 +14,4 @@ This public repository contains the maintained website and macOS release assets.
 - Published release assets and tags must not be replaced. A correction needs a new version. Prepare complete draft releases before publishing an immutable release.
 - Never publish a candidate or merge a download update merely because checks passed; follow the authorization for the current task.
 
-The website demonstration contains existing public-domain musical excerpts, not captured live MIDI. Preserve attribution and the current gesture requirement for sound.
+The website demonstration uses a Für Elise excerpt adapted from an existing public-domain edition, not captured live MIDI. Preserve attribution and the current gesture requirement for sound.
