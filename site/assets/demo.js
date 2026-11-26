@@ -313,7 +313,7 @@ function islandSurfacePath(width, height, progress, scale) {
     trigger.style.height = height + 'px';
     surface.style.right = trigger.style.right = menu ? '0px' : '';
     content.style.clipPath = menu
-      ? `inset(0 round 0 0 ${24 * scale}px ${24 * scale}px)`
+      ? `inset(0 round 0 0 0 ${24 * scale}px)`
       : `path('${islandSurfacePath(width, height, progress, scale)}')`;
     backdrop.style.opacity = menu ? '1' : String(progress);
     expandedImage.style.opacity = expandedValues.style.opacity = String(contentOpacity);
