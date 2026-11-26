@@ -1,5 +1,23 @@
 {
   "schemaVersion": 2,
   "stable": null,
-  "alpha": null
+  "alpha": {
+    "tag": "v1.0.0-alpha.1",
+    "version": "1.0.0",
+    "build": "1",
+    "channel": "alpha",
+    "minimumMacOS": "15.7",
+    "architectures": [
+      "arm64"
+    ],
+    "distribution": "adhoc-alpha",
+    "builtAt": "2026-11-26T15:33:44Z",
+    "download": {
+      "name": "Tonal-Island-1.0.0-alpha.1-arm64.dmg",
+      "url": "https://github.com/fmhun/tonal-island-app/releases/download/v1.0.0-alpha.1/Tonal-Island-1.0.0-alpha.1-arm64.dmg",
+      "sha256": "47ad41d72423e7523a6664d2712f85fa838f7442b2e851a830accacc7f0a1172",
+      "size": 1779721
+    },
+    "releasedAt": "2026-11-26T15:42:20Z"
+  }
 }
