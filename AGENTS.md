@@ -16,3 +16,4 @@ This public repository contains the maintained website and macOS release assets.
 - Never publish a candidate or merge a download update merely because checks passed; follow the authorization for the current task.
 
 The website demonstration uses a Für Elise excerpt adapted from an existing public-domain edition, not captured live MIDI. Preserve attribution and the current gesture requirement for sound.
+Audio must start muted on every page load and only be enabled through the speaker control.
