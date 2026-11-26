@@ -10,6 +10,7 @@ This public repository contains the maintained website and macOS release assets.
 - Release preparation and publication run from the private repository. Do not introduce Apple credentials or access to private sources here.
 - `site/downloads.json` is the public download contract. Update a channel only after the corresponding release and exact asset are publicly accessible. Preserve the other channel.
 - Stable and alpha versions are distinct. Each download records its exact tag, version, build, macOS minimum, architectures, URL, size and SHA-256.
+- Download schema v2 also records `distribution`: `adhoc-alpha` is alpha-only, locally signed and not notarized; `developer-id` is the signed/notarized path. Never label an ad-hoc download as identified or notarized by Apple. Keep the installation guide and status text consistent with the selected profile.
 - Published release assets and tags must not be replaced. A correction needs a new version. Prepare complete draft releases before publishing an immutable release.
 - Never publish a candidate or merge a download update merely because checks passed; follow the authorization for the current task.
 

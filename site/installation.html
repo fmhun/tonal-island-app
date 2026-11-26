@@ -8,16 +8,36 @@
   <link rel="canonical" href="https://fmhun.github.io/tonal-island-app/installation.html">
   <link rel="icon" type="image/png" href="./favicon.png">
   <link rel="stylesheet" href="./assets/site.css">
+  <link rel="stylesheet" href="./assets/installation.css">
+  <script type="module" src="./assets/downloads.js?v=2"></script>
 </head>
 <body>
   <main class="credits">
     <a href="./">Tonal Island</a>
     <h1>Install Tonal Island</h1>
-    <p>A public macOS download is being prepared. You can already <a href="./#ti-demo">try the interactive demo</a>.</p>
-    <p>When a release is available, download its DMG from <a href="https://github.com/fmhun/tonal-island-app/releases">GitHub Releases</a>, open it, and drag Tonal Island into Applications.</p>
-    <p>Launch the app and select your MIDI input. Use a connected MIDI keyboard or an available virtual MIDI source to see the notes and intervals you play.</p>
-    <p>Check the release notes for the required macOS version and supported Mac architectures. Alpha versions are early releases and may contain unfinished behavior.</p>
-    <p>If macOS reports a damaged app or an unverified developer, stop and report the release version and exact message. Official downloads must be signed and notarized; do not disable Gatekeeper.</p>
+    <p data-ti-distribution>This first alpha uses a local ad-hoc signature and is not notarized by Apple. macOS may ask you to approve its first launch.</p>
+    <a class="install-download" data-ti-download href="./#ti-demo">Try the demo</a>
+    <p class="install-details" data-ti-download-details>Apple Silicon · macOS 15.7 or later</p>
+    <ol>
+      <li>Download and open the DMG.</li>
+      <li>Drag <strong>Tonal Island</strong> into <strong>Applications</strong>.</li>
+      <li>Open Tonal Island from Applications.</li>
+    </ol>
+    <section data-ti-adhoc-guide>
+      <h2>If macOS blocks the first launch</h2>
+      <ol>
+        <li>Try opening Tonal Island once, then dismiss the alert.</li>
+        <li>Open <strong>System Settings → Privacy &amp; Security</strong>.</li>
+        <li>Find the message about Tonal Island and click <strong>Open Anyway</strong>, if offered.</li>
+        <li>Confirm that you want to open it. macOS may request your Mac login password or Touch ID.</li>
+      </ol>
+      <p>This creates an exception for this app. You do not need to disable Gatekeeper or run a Terminal command. <a href="https://support.apple.com/en-us/102445">Apple’s instructions</a>.</p>
+    </section>
+    <h2>Connect your keyboard</h2>
+    <p>Select your MIDI input in the app, then play a few notes. Tonal Island displays the notes and intervals you play.</p>
+    <h2>Check the download</h2>
+    <p>Every <a href="https://github.com/fmhun/tonal-island-app/releases">GitHub Release</a> includes its DMG, <code>SHA256SUMS</code> and version details. Check the release notes for compatibility and known limitations.</p>
+    <p>If macOS reports that the app is damaged or will harm your computer, stop and report the exact message and release version.</p>
   </main>
 </body>
 </html>

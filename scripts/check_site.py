@@ -15,6 +15,8 @@ def validate_release(release, channel):
     if release is None:
         return
     assert release["channel"] == channel
+    assert release['distribution'] in {'developer-id', 'adhoc-alpha'}
+    assert release['distribution'] != 'adhoc-alpha' or channel == 'alpha'
     assert re.fullmatch(r"\d+\.\d+\.\d+", release["version"])
     suffix = r"-alpha\.\d+" if channel == "alpha" else ""
     assert re.fullmatch("v" + re.escape(release["version"]) + suffix, release["tag"])
@@ -45,7 +47,7 @@ class Page(HTMLParser):
 
 def main():
     manifest = json.loads((SITE / "downloads.json").read_text())
-    assert manifest["schemaVersion"] == 1
+    assert manifest["schemaVersion"] == 2
     for channel in ["stable", "alpha"]:
         validate_release(manifest[channel], channel)
     for file in SITE.rglob("*.html"):
