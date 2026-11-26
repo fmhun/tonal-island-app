@@ -3,6 +3,6 @@
 .credits li { padding-left: .35rem; margin-block: .75rem; }
 .credits .install-download { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; margin-top: .75rem; padding: .65rem 1.1rem; border-radius: 8px; background: #ade8d5; color: #10251d; font-weight: 500; text-decoration: none; }
 .credits .install-download:hover { background: #c1f0e1; }
-.credits .install-details { color: #a9b4af; font-size: .875rem; line-height: 1.6; margin-top: .75rem; }
+.credits .install-details { color: #a1a1a6; font-size: .875rem; line-height: 1.6; margin-top: .75rem; }
 .credits [data-ti-distribution] { border-left: 2px solid #ade8d5; padding-left: 1rem; margin-block: 1.5rem; }
 [hidden] { display: none !important; }
