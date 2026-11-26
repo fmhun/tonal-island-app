@@ -1,4 +1,4 @@
-import {sprites, playlist, pairs} from './data.js';
+import {sprites, melody, pairs} from './data.js?v=2';
 (() => {
   function readSiteState() {
     try { return JSON.parse(localStorage.getItem('tonal-island.preferences')); }
@@ -16,8 +16,6 @@ import {sprites, playlist, pairs} from './data.js';
     return {id:`m${fromMidi}-m${toMidi}`,fromMidi,toMidi,fromNote:sprites.notes[fromMidi].name,toNote:sprites.notes[toMidi].name,semitones,interval:interval.label,
       assets:{expanded:sprites.bases.expanded,islandCompact:sprites.bases.island,menuCompact:sprites.bases.menu,status:interval.status}};
   });
-  let trackIndex = 0;
-  let melody = playlist[0];
   // Design-only JavaScript counterpart of TonalIsland/IslandTransition.swift.
 function sampleIslandTransition(transition, now) {
   const elapsed = Math.max((now - transition.startTime) / 1000, 0);
@@ -112,11 +110,8 @@ function islandSurfacePath(width, height, progress, scale) {
 
     const bufferCache = new Map();
   const waveCache = new Map();
-  const previousButton = root.querySelector('.ti-track-previous');
-  const nextButton = root.querySelector('.ti-track-next');
   const trackTitle = root.querySelector('.ti-track-title');
   const trackComposer = root.querySelector('.ti-track-composer');
-  const trackCounter = root.querySelector('.ti-track-counter');
   const trackSource = root.querySelector('.ti-track-source');
   const expandedValues = root.querySelector('.ti-expanded-values');
   const compactValues = root.querySelector('.ti-compact-values');
@@ -144,7 +139,6 @@ function islandSurfacePath(width, height, progress, scale) {
   function showTrack() {
     trackTitle.textContent = melody.title;
     trackComposer.textContent = melody.composer;
-    trackCounter.textContent = `${trackIndex + 1} / ${playlist.length}`;
     trackSource.href = melody.source;
     trackSource.setAttribute('aria-label', `Public domain score: ${melody.title}, Mutopia Project`);
     root.dataset.melodyId = melody.id;
@@ -243,26 +237,6 @@ function islandSurfacePath(width, height, progress, scale) {
     });
   }
 
-  function switchTrack(index, persist = true) {
-    const next = (index + playlist.length) % playlist.length;
-    if (next === trackIndex) return;
-    const resume = playing;
-    pausePlayback(false);
-    trackIndex = next; melody = playlist[next];
-    duration = melody.sampleCount / melody.sampleRate * 1000;
-    position = transportBase = 0;
-    activeSignature = ''; currentDyad = -1;
-    root.dataset.pressed = '';
-    audioBuffer = soundEnabled && audioContext ? makeAudioBuffer(melody) : null;
-    showTrack(); buildPiano(); renderPlayback(0);
-    if (resume) startPlayback(false);
-    if (persist) save();
-  }
-
-  previousButton.addEventListener('click', () => switchTrack(trackIndex - 1));
-  nextButton.addEventListener('click', () => switchTrack(trackIndex + 1));
-
-
   function absoluteTime() {
     if (!playing) return position;
     if (audioActive) return transportBase + (audioContext.currentTime - audioEpoch) * 1000;
@@ -313,7 +287,7 @@ function islandSurfacePath(width, height, progress, scale) {
     trigger.style.height = height + 'px';
     surface.style.right = trigger.style.right = menu ? '0px' : '';
     content.style.clipPath = menu
-      ? `inset(0 round 0 0 ${24 * scale}px ${24 * scale}px)`
+      ? `inset(0 round 0 0 0 ${24 * scale}px)`
       : `path('${islandSurfacePath(width, height, progress, scale)}')`;
     backdrop.style.opacity = menu ? '1' : String(progress);
     expandedImage.style.opacity = expandedValues.style.opacity = String(contentOpacity);
@@ -666,8 +640,6 @@ function islandSurfacePath(width, height, progress, scale) {
       if (incoming < stateRevision) return;
       stateRevision = incoming;
     }
-    const savedTrack = playlist.findIndex(track => track.id === value.melodyId);
-    if (savedTrack >= 0 && savedTrack !== trackIndex) switchTrack(savedTrack, false);
     if (!['Dynamic Island','Menu bar'].includes(value.mode) || value.mode === lastRestoredMode) return;
     lastRestoredMode = value.mode;
     setMode(value.mode === 'Menu bar' ? 'menu' : 'island', false);
