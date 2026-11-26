@@ -3,6 +3,7 @@
 This public repository contains the maintained website and macOS release assets. The macOS application's source and signing procedure live in a separate private repository.
 
 - Edit the website in `site/`; it is the canonical website source. Keep the current static HTML/CSS/JavaScript structure unless a task justifies changing it.
+- Keep download actions mint (`#ade8d5`) with dark text; the macOS visual styling must not replace them with blue buttons.
 - Run `python3 scripts/check_site.py` before proposing a website change. Pages publishes only `site/`.
 - Use focused branches and PRs. Human review and manual merge are the default. Respect explicit authorization already given in the session.
 - Never copy application sources, private Git history, archives, debug symbols, credentials or private logs into this repository.
@@ -15,3 +16,4 @@ This public repository contains the maintained website and macOS release assets.
 - Never publish a candidate or merge a download update merely because checks passed; follow the authorization for the current task.
 
 The website demonstration uses a Für Elise excerpt adapted from an existing public-domain edition, not captured live MIDI. Preserve attribution and the current gesture requirement for sound.
+Audio must start muted on every page load and only be enabled through the speaker control.

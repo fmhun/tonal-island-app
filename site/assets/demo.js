@@ -65,7 +65,6 @@ function islandSurfacePath(width, height, progress, scale) {
   const grid = root.querySelector('.ti-roll-grid');
   const notesElement = root.querySelector('.ti-roll-notes');
   const playhead = root.querySelector('.ti-playhead');
-  const playbackButton = root.querySelector('.ti-playback-toggle');
   const soundButton = root.querySelector('.ti-sound-toggle');
   const audioNotice = root.querySelector('.ti-audio-notice');
   const playbackNotes = root.querySelector('.ti-playback-notes');
@@ -87,7 +86,6 @@ function islandSurfacePath(width, height, progress, scale) {
   let playbackFrame = 0;
   let transportStart = 0;
   let transportBase = 0;
-  let userPaused = false;
   let manualPointer = false;
   let manualKeyboard = false;
   let manualPinned = false;
@@ -381,11 +379,9 @@ function islandSurfacePath(width, height, progress, scale) {
   }
 
   function playbackLabels() {
-    playbackButton.textContent = playing ? 'Pause' : 'Play';
-    playbackButton.setAttribute('aria-label', playing ? 'Pause the demo' : 'Play the demo');
-    soundButton.textContent = soundEnabled ? 'Sound on' : 'Sound off';
     soundButton.setAttribute('aria-pressed', String(soundEnabled));
     soundButton.setAttribute('aria-label', soundEnabled ? 'Turn sound off' : 'Turn sound on');
+    soundButton.title = soundEnabled ? 'Turn sound off' : 'Turn sound on';
     root.dataset.playing = String(playing);
     root.dataset.audioState = soundEnabled && audioContext ? audioContext.state : 'off';
   }
@@ -487,6 +483,7 @@ function islandSurfacePath(width, height, progress, scale) {
       transportBase = now;
       transportStart = performance.now();
       soundEnabled = false;
+      manageAutoplay();
       playbackLabels();
       save();
       return;
@@ -515,7 +512,8 @@ function islandSurfacePath(width, height, progress, scale) {
       const resumed = audioContext.resume();
       if (!audioBuffer) audioBuffer = makeAudioBuffer(melody);
       await resumed;
-      attachAudio();
+      if (playing) attachAudio();
+      else startPlayback(false);
     } catch (_) {
       soundEnabled = false;
       audioNotice.hidden = false;
@@ -612,14 +610,6 @@ function islandSurfacePath(width, height, progress, scale) {
       setMode(next.dataset.mode);
     });
   });
-  playbackButton.addEventListener('click', async () => {
-    userPaused = playing;
-    if (playing) pausePlayback();
-    else {
-      if (soundEnabled && audioContext) await audioContext.resume();
-      startPlayback();
-    }
-  });
   soundButton.addEventListener('click', toggleSound);
   demo.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
@@ -647,7 +637,8 @@ function islandSurfacePath(width, height, progress, scale) {
   function manageAutoplay() {
     if (!assetsReady) return;
     if (!demoVisible || document.hidden) pausePlayback(false);
-    else if (!userPaused && !reduced.matches) startPlayback(false);
+    else if (!reduced.matches || soundEnabled) startPlayback(false);
+    else pausePlayback(false);
   }
   const observer = new IntersectionObserver(entries => {
     const entry = entries.find(item => item.target === panel);
@@ -657,8 +648,8 @@ function islandSurfacePath(width, height, progress, scale) {
   observer.observe(panel);
   document.addEventListener('visibilitychange', manageAutoplay);
   reduced.addEventListener('change', () => {
-    if (reduced.matches) { pausePlayback(false); setOpen(expanded, true, false); }
-    else manageAutoplay();
+    if (reduced.matches) setOpen(expanded, true, false);
+    manageAutoplay();
   });
   window.addEventListener('pagehide', () => { pausePlayback(false); if (audioContext) audioContext.close(); });
 
@@ -672,7 +663,6 @@ function islandSurfacePath(width, height, progress, scale) {
   new ResizeObserver(updateGeometry).observe(stage);
   statusImage.addEventListener('load', renderSurface);
   restore(readSiteState());
-  playbackButton.disabled = true;
   const imageAssets = [...Object.values(sprites.bases), ...Object.values(sprites.notes).map(note => note.asset),
     ...Object.values(sprites.intervals).flatMap(interval => [interval.expanded, interval.compact, interval.footer, interval.status])];
   const images = [...new Set(imageAssets)].map(src => {
@@ -681,9 +671,9 @@ function islandSurfacePath(width, height, progress, scale) {
   });
   Promise.all(images).then(() => {
     assetsReady = true;
-    playbackButton.disabled = false;
+    soundButton.disabled = false;
     manageAutoplay();
-  }).catch(() => { playbackButton.textContent = 'Demo unavailable'; });
+  }).catch(() => { audioNotice.textContent = 'Demo unavailable.'; audioNotice.hidden = false; });
 })();
 
 })();

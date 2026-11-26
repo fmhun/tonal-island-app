@@ -1,23 +1,38 @@
-html { background: #101413; color-scheme: dark; }
-    body { margin: 0; min-height: 100vh; }
-    .credits { max-width: 720px; padding: 48px 24px; margin: auto; color: #f1f4f2;
-      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    .credits h1 { font-size: 32px; line-height: 1.2; letter-spacing: -.03em; }
-    .credits a { color: #ade8d5; text-underline-offset: 4px; }
-    .credits li { margin-block: 16px; }
-    a:focus-visible { outline: 2px solid #ade8d5; outline-offset: 4px; }
+html { background: #111113; color-scheme: dark; }
+body { margin: 0; min-height: 100vh; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-optical-sizing: auto; font-synthesis: none; }
+.credits { max-width: 45rem; padding: 3rem 1.5rem; margin: auto; color: #f5f5f7; font-size: 1.0625rem; line-height: 1.625rem; }
+.credits > a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.credits h1 { margin: 1.5rem 0 1rem; font-size: 2rem; line-height: 2.375rem; font-weight: 500; letter-spacing: -.025em; }
+.credits p { margin: 0 0 1rem; }
+.credits a { color: #64b5ff; text-underline-offset: .25rem; }
+.credits ul { margin: 1.5rem 0 0; padding-inline-start: 1.5rem; }
+.credits li { margin: 0 0 1rem; }
+.credits li:last-child { margin-bottom: 0; }
+a:focus-visible { outline: 2px solid #64b5ff; outline-offset: 4px; border-radius: 2px; }
 #tonal-site-v2 {
-      --ti-bg: #101413;
-      --ti-text: #f1f4f2;
-      --ti-secondary: #a9b4af;
-      --ti-line: #303b36;
+      --ti-bg: #111113;
+      --ti-surface: #1c1c1e;
+      --ti-control: #2c2c2e;
+      --ti-control-hover: #3a3a3c;
+      --ti-control-pressed: #242426;
+      --ti-selected: #48484b;
+      --ti-text: #f5f5f7;
+      --ti-secondary: #a1a1a6;
+      --ti-line: #3a3a3c;
+      --ti-line-strong: #737377;
+      --ti-focus: #64b5ff;
       --ti-mint: #ade8d5;
       --ti-ink: #10251d;
+      --ti-radius-control: 8px;
+      --ti-radius-panel: 12px;
+      --ti-control-shadow: inset 0 1px 0 #ffffff0d, 0 1px 2px #00000026;
       --ti-space: 4px;
       color-scheme: dark;
       color: var(--ti-text);
       background: var(--ti-bg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-optical-sizing: auto;
+      font-synthesis: none;
       font-size: 18px;
       line-height: 28px;
       font-weight: 400;
@@ -31,31 +46,36 @@ html { background: #101413; color-scheme: dark; }
     #tonal-site-v2 button, #tonal-site-v2 a { font: inherit; -webkit-tap-highlight-color: transparent; }
     #tonal-site-v2 a { color: inherit; text-decoration: none; }
     #tonal-site-v2 button { cursor: pointer; }
-    #tonal-site-v2 button:focus-visible, #tonal-site-v2 a:focus-visible { outline: 2px solid var(--ti-mint); outline-offset: 4px; }
+    #tonal-site-v2 button:focus-visible, #tonal-site-v2 a:focus-visible { outline: 2px solid var(--ti-focus); outline-offset: 4px; }
     #tonal-site-v2 .ti-container { width: min(100%, 1104px); padding-inline: 32px; margin-inline: auto; }
     #tonal-site-v2 .ti-header { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    #tonal-site-v2 .ti-brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; font-size: 18px; line-height: 24px; font-weight: 500; letter-spacing: -.025em; }
-    #tonal-site-v2 .ti-brand img { width: 32px; height: 32px; display: block; }
+    #tonal-site-v2 .ti-brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; font-size: 1.25rem; line-height: 1.2; font-weight: 500; letter-spacing: -.015em; }
+    #tonal-site-v2 .ti-brand img { width: 40px; height: 40px; display: block; }
+    #tonal-site-v2 .ti-brand-label { display: flex; flex-direction: column; gap: 2px; }
+    #tonal-site-v2 .ti-platform { color: var(--ti-secondary); font-size: .75rem; line-height: 1.5; font-weight: 400; letter-spacing: 0; }
     #tonal-site-v2 .ti-nav { display: flex; align-items: center; gap: 24px; font-size: 14px; line-height: 20px; color: var(--ti-secondary); }
     #tonal-site-v2 .ti-nav a { padding-block: 12px; }
     #tonal-site-v2 .ti-nav a:hover { color: var(--ti-text); }
     #tonal-site-v2 .ti-intro { padding-top: 64px; text-align: center; max-width: 920px; margin-inline: auto; }
     #tonal-site-v2 .ti-release { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-    #tonal-site-v2 .ti-alpha-badge { display: inline-block; flex-shrink: 0; padding: 4px 12px; border-radius: 8px; background: var(--ti-mint); color: var(--ti-ink); font-size: 12px; line-height: 20px; font-weight: 500; letter-spacing: .12em; box-shadow: 0 0 0 4px #ade8d50a, 0 0 32px #ade8d51f; }
+    #tonal-site-v2 .ti-alpha-badge { display: inline-block; flex-shrink: 0; padding: 4px 12px; border-radius: var(--ti-radius-control); background: var(--ti-mint); color: var(--ti-ink); font-size: .75rem; line-height: 1.6667; font-weight: 500; letter-spacing: .1em; box-shadow: 0 0 0 1px #ade8d526, 0 0 16px #ade8d514; }
     #tonal-site-v2 .ti-release-copy { color: var(--ti-secondary); font-size: 14px; line-height: 20px; }
-    #tonal-site-v2 h1 { font-size: 56px; line-height: 60px; letter-spacing: -.03em; font-weight: 500; text-wrap: balance; }
-    #tonal-site-v2 .ti-title-accent { color: var(--ti-mint); }
-    #tonal-site-v2 .ti-lead { max-width: 560px; margin: 24px auto 0; color: var(--ti-secondary); font-size: 18px; line-height: 28px; text-wrap: pretty; }
+    #tonal-site-v2 h1 { font-size: 3.5rem; line-height: 1.07143; letter-spacing: -.025em; font-weight: 500; text-wrap: balance; }
+    #tonal-site-v2 .ti-title-accent { color: var(--ti-text); }
+    #tonal-site-v2 .ti-lead { max-width: 600px; margin: 24px auto 0; color: var(--ti-secondary); font-size: 1.25rem; line-height: 1.4; text-wrap: pretty; }
     #tonal-site-v2 .ti-actions { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 32px; }
     #tonal-site-v2 .ti-download { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 20px; border: 0; border-radius: 8px; background: var(--ti-mint); color: var(--ti-ink); font-size: 16px; line-height: 24px; font-weight: 500; }
     #tonal-site-v2 .ti-download:hover { background: #c1f0e1; }
     #tonal-site-v2 .ti-requirements { margin-top: 12px; font-size: 12px; line-height: 20px; color: var(--ti-secondary); }
+    #tonal-site-v2 .ti-requirements a { color: var(--ti-focus); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+    #tonal-site-v2 .ti-requirements a:hover { color: var(--ti-text); }
     #tonal-site-v2 .ti-download-note { margin-top: 8px; font-size: 13px; line-height: 20px; color: var(--ti-secondary); }
     #tonal-site-v2 .ti-demo { padding-top: 64px; }
-    #tonal-site-v2 .ti-demo-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
-    #tonal-site-v2 .ti-modes { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--ti-line); border-radius: 12px; }
-    #tonal-site-v2 .ti-mode { border: 0; border-radius: 8px; background: transparent; color: var(--ti-secondary); padding: 8px 16px; font-size: 14px; line-height: 20px; font-weight: 500; min-height: 44px; }
-    #tonal-site-v2 .ti-mode[aria-selected="true"] { background: #29342e; color: var(--ti-text); }
+    #tonal-site-v2 .ti-modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 272px; max-width: 100%; gap: 2px; padding: 3px; border: 1px solid var(--ti-line); border-radius: var(--ti-radius-panel); background: var(--ti-surface); }
+    #tonal-site-v2 .ti-mode { min-width: 0; border: 0; border-radius: var(--ti-radius-control); background: transparent; color: var(--ti-secondary); padding: 8px 12px; font-size: .875rem; line-height: 1.4286; font-weight: 500; min-height: 44px; }
+    #tonal-site-v2 .ti-mode:hover { background: var(--ti-control); color: var(--ti-text); }
+    #tonal-site-v2 .ti-mode[aria-selected="true"] { background: var(--ti-selected); color: var(--ti-text); box-shadow: var(--ti-control-shadow); }
+    #tonal-site-v2 .ti-mode:active { background: var(--ti-control-hover); }
     #tonal-site-v2 .ti-macbook { position: relative; padding: 3px 3px 0; border-radius: 36px 36px 0 0; background: linear-gradient(112deg, #414748 0%, #979e9e 17%, #4c5354 38%, #252b2c 64%, #727a7a 87%, #343b3b 100%); box-shadow: inset 0 1px 0 #d0d7d766, inset 1px 0 0 #d0d7d733, inset -1px 0 0 #0008; -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); }
     #tonal-site-v2 .ti-macbook::before { content: ""; position: absolute; z-index: 7; inset: 1px 1px 0; border: 1px solid #090b0c; border-bottom: 0; border-radius: 35px 35px 0 0; pointer-events: none; }
     #tonal-site-v2 .ti-display-bezel { position: relative; padding: 11px 10px 0; border-radius: 33px 33px 0 0; background: #050707; box-shadow: inset 0 1px 0 #cbd1d126, inset 2px 0 0 #ffffff06, inset -2px 0 0 #ffffff06; }
@@ -80,13 +100,13 @@ html { background: #101413; color-scheme: dark; }
     #tonal-site-v2 .ti-stage[data-open="true"] .ti-island-trigger { width: var(--ti-native-width); height: calc(var(--ti-native-width) * 208 / 680); }
     #tonal-site-v2 .ti-stage[data-mode="menu"] .ti-island-trigger { top: var(--ti-menu-height); left: auto; right: 0; transform: none; }
     #tonal-site-v2 .ti-stage[data-mode="menu"][data-visible="false"] .ti-island-trigger { display: none; }
-    #tonal-site-v2 .ti-demo-footer { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-top: 16px; }
+    #tonal-site-v2 .ti-demo-footer { padding-top: 16px; }
     #tonal-site-v2 .ti-info-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--ti-line); }
-    #tonal-site-v2 .ti-info-section h2 { max-width: 280px; font-size: 32px; line-height: 36px; font-weight: 500; letter-spacing: -.025em; text-wrap: balance; }
+    #tonal-site-v2 .ti-info-section h2 { max-width: 280px; font-size: 2rem; line-height: 1.1875; font-weight: 500; letter-spacing: -.02em; text-wrap: balance; }
     #tonal-site-v2 .ti-philosophy-copy { max-width: 640px; min-width: 0; }
-    #tonal-site-v2 .ti-philosophy-copy > p { font-size: 16px; line-height: 28px; color: var(--ti-secondary); }
+    #tonal-site-v2 .ti-philosophy-copy > p { font-size: 1.0625rem; line-height: 1.6471; color: var(--ti-secondary); }
     #tonal-site-v2 .ti-philosophy-copy > p + p { margin-top: 16px; }
-    #tonal-site-v2 .ti-roadmap { margin-top: 24px; padding-left: 16px; border-left: 2px solid var(--ti-mint); }
+    #tonal-site-v2 .ti-roadmap { margin-top: 24px; padding: 20px; border: 1px solid var(--ti-line); border-radius: var(--ti-radius-panel); background: var(--ti-surface); }
     #tonal-site-v2 .ti-roadmap-title { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
     #tonal-site-v2 .ti-roadmap h3 { margin: 0; font-size: 18px; line-height: 24px; font-weight: 500; letter-spacing: -.015em; }
     #tonal-site-v2 .ti-planned { display: inline-block; padding: 4px 8px; border: 1px solid var(--ti-line); border-radius: 4px; color: var(--ti-mint); font-size: 12px; line-height: 20px; }
@@ -99,14 +119,9 @@ html { background: #101413; color-scheme: dark; }
   max-width: 100%;
 }
 
-#tonal-site-v2 .ti-midi-toolbar {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
-  align-items: center;
-  gap: 12px;
-  min-height: 44px;
-  margin-bottom: 8px;
-}
+#tonal-site-v2 .ti-demo-controls { display: grid; grid-template-columns: auto minmax(96px, 1fr) auto; align-items: center; gap: 16px 24px; margin-top: 16px; }
+#tonal-site-v2 .ti-mode-sound { display: flex; align-items: center; gap: 8px; min-width: 0; }
+#tonal-site-v2 .ti-midi-reading { display: flex; flex-direction: column; min-width: 0; }
 
 #tonal-site-v2 .ti-midi-label {
   flex: 0 0 auto;
@@ -128,34 +143,41 @@ html { background: #101413; color-scheme: dark; }
   text-overflow: ellipsis;
 }
 
-#tonal-site-v2 .ti-playback-toggle,
 #tonal-site-v2 .ti-sound-toggle {
-  flex: 0 0 auto;
-  min-width: 64px;
-  min-height: 44px;
-  padding: 8px 12px;
-  border: 1px solid var(--ti-line);
-  border-radius: 8px;
-  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--ti-line-strong);
+  border-radius: var(--ti-radius-control);
+  background: var(--ti-control);
+  box-shadow: var(--ti-control-shadow);
   color: var(--ti-text);
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: 500;
+}
+#tonal-site-v2 .ti-sound-toggle svg { display: block; }
+#tonal-site-v2 .ti-sound-waves { display: none; }
+#tonal-site-v2 .ti-sound-toggle[aria-pressed="true"] .ti-sound-waves { display: inline; }
+#tonal-site-v2 .ti-sound-toggle[aria-pressed="true"] .ti-sound-muted { display: none; }
+
+#tonal-site-v2 .ti-sound-toggle:enabled:hover {
+  background: var(--ti-control-hover);
 }
 
-#tonal-site-v2 .ti-playback-toggle:hover,
-#tonal-site-v2 .ti-sound-toggle:hover {
-  background: #213027;
+#tonal-site-v2 .ti-sound-toggle:enabled:active {
+  background: var(--ti-control-pressed);
+  box-shadow: none;
 }
 
-#tonal-site-v2 .ti-playback-toggle:disabled,
 #tonal-site-v2 .ti-sound-toggle:disabled {
   opacity: 0.45;
   cursor: default;
 }
 
 #tonal-site-v2 .ti-sound-toggle[aria-pressed="true"] {
-  background: #29342e;
+  background: var(--ti-selected);
 }
 
 #tonal-site-v2 .ti-piano-roll {
@@ -164,7 +186,7 @@ html { background: #101413; color-scheme: dark; }
   height: 156px;
   overflow: hidden;
   border-radius: 8px;
-  background: #18211c;
+  background: var(--ti-surface);
 }
 
 #tonal-site-v2 .ti-piano-roll::after {
@@ -183,8 +205,8 @@ html { background: #101413; color-scheme: dark; }
   inset: 0 auto 0 0;
   width: 40px;
   overflow: hidden;
-  background: #d4ddd6;
-  border-right: 1px solid #52695a;
+  background: #e5e5e7;
+  border-right: 1px solid #7c7c80;
 }
 
 #tonal-site-v2 .ti-roll-key {
@@ -196,9 +218,9 @@ html { background: #101413; color-scheme: dark; }
   justify-content: flex-start;
   width: 100%;
   padding-left: 6px;
-  border-top: 1px solid #87978d;
-  background: #d4ddd6;
-  color: #24362a;
+  border-top: 1px solid #929296;
+  background: #e5e5e7;
+  color: #28282c;
   font-size: 11px;
   line-height: 12px;
   font-weight: 500;
@@ -210,10 +232,10 @@ html { background: #101413; color-scheme: dark; }
   left: 40%;
   width: 60%;
   padding: 0;
-  border: 1px solid #31443a;
+  border: 1px solid #454549;
   border-right: 0;
   border-radius: 3px 0 0 3px;
-  background: #0b120e;
+  background: #121214;
 }
 
 #tonal-site-v2 .ti-roll-key span {
@@ -235,7 +257,7 @@ html { background: #101413; color-scheme: dark; }
   position: absolute;
   inset: 0 0 0 40px;
   overflow: hidden;
-  background: #18211c;
+  background: var(--ti-surface);
 }
 
 #tonal-site-v2 .ti-roll-lane {
@@ -243,19 +265,19 @@ html { background: #101413; color-scheme: dark; }
   z-index: 0;
   left: 0;
   right: 0;
-  border-bottom: 1px solid #26362c;
-  background: #18211c;
+  border-bottom: 1px solid #2c2c2f;
+  background: var(--ti-surface);
 }
 
 #tonal-site-v2 .ti-roll-lane.is-black {
-  background: #111914;
+  background: #171719;
 }
 
 #tonal-site-v2 .ti-roll-notes {
   position: absolute;
   z-index: 1;
   inset: 0;
-  background-image: linear-gradient(to right, #34483b 1px, transparent 1px);
+  background-image: linear-gradient(to right, var(--ti-line) 1px, transparent 1px);
   background-size: calc(100% / var(--ti-roll-columns)) 100%;
   pointer-events: none;
 }
@@ -344,54 +366,58 @@ html { background: #101413; color-scheme: dark; }
 
     @media (max-width: 740px) {
       #tonal-site-v2 .ti-container { padding-inline: 20px; }
-      #tonal-site-v2 .ti-header { min-height: 72px; }
-      #tonal-site-v2 .ti-nav { gap: 16px; }
+      #tonal-site-v2 .ti-header { min-height: 72px; flex-wrap: wrap; row-gap: 8px; padding-block: 12px; }
+      #tonal-site-v2 .ti-nav { max-width: 100%; margin-left: auto; flex-wrap: wrap; justify-content: flex-end; gap: 4px 16px; }
       #tonal-site-v2 .ti-intro { padding-top: 40px; }
-      #tonal-site-v2 h1 { font-size: 40px; line-height: 44px; }
-      #tonal-site-v2 .ti-lead { font-size: 16px; line-height: 24px; max-width: 440px; margin-top: 16px; }
+      #tonal-site-v2 h1 { font-size: 2.5rem; line-height: 1.1; }
+      #tonal-site-v2 .ti-lead { font-size: 1.0625rem; line-height: 1.5294; max-width: 440px; margin-top: 16px; }
       #tonal-site-v2 .ti-actions { margin-top: 24px; }
       #tonal-site-v2 .ti-demo { padding-top: 48px; }
       #tonal-site-v2 .ti-stage { height: 288px; }
       #tonal-site-v2 .ti-info-section { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; padding-top: 24px; }
-      #tonal-site-v2 .ti-info-section h2 { max-width: none; font-size: 28px; line-height: 32px; }
+      #tonal-site-v2 .ti-info-section h2 { max-width: none; font-size: 1.75rem; line-height: 1.2143; }
     }
     @media (max-width: 480px) {
       #tonal-site-v2 .ti-header { gap: 12px; }
       #tonal-site-v2 .ti-nav { font-size: 13px; gap: 12px; }
-      #tonal-site-v2 .ti-brand { gap: 8px; font-size: 16px; }
-      #tonal-site-v2 .ti-brand img { width: 28px; height: 28px; }
-      #tonal-site-v2 h1 { font-size: 36px; line-height: 40px; }
+      #tonal-site-v2 .ti-brand { gap: 8px; font-size: 1.0625rem; line-height: 1.2941; }
+      #tonal-site-v2 .ti-brand img { width: 36px; height: 36px; }
+      #tonal-site-v2 h1 { font-size: 2.25rem; line-height: 1.1111; }
       #tonal-site-v2 .ti-release-copy { font-size: 12px; }
       #tonal-site-v2 .ti-download { width: 100%; }
       #tonal-site-v2 .ti-macbook { padding: 2px 2px 0; border-radius: 24px 24px 0 0; }
       #tonal-site-v2 .ti-macbook::before { border-radius: 23px 23px 0 0; }
       #tonal-site-v2 .ti-display-bezel { padding: 8px 6px 0; border-radius: 22px 22px 0 0; }
       #tonal-site-v2 .ti-stage { height: 208px; border-radius: 16px 16px 0 0; }
-      #tonal-site-v2 .ti-demo-toolbar { gap: 12px; }
       #tonal-site-v2 .ti-modes { width: 100%; }
       #tonal-site-v2 .ti-mode { flex: 1; min-height: 44px; padding-inline: 12px; }
-      #tonal-site-v2 .ti-demo-footer { gap: 16px; flex-direction: column; }
       #tonal-site-v2 .ti-roadmap h3 { font-size: 16px; line-height: 24px; }
     }
     @media (prefers-reduced-motion: reduce) {
       #tonal-site-v2 *, #tonal-site-v2 *::before, #tonal-site-v2 *::after { scroll-behavior: auto; }
     }
 
-#tonal-site-v2 .ti-sound-toggle { min-width: 92px; }
 #tonal-site-v2 .ti-audio-notice { margin-bottom: 8px; font-size: 13px; line-height: 20px; color: var(--ti-secondary); }
+@media (max-width: 900px) {
+  #tonal-site-v2 .ti-demo-controls { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  #tonal-site-v2 .ti-mode-sound { grid-column: 1 / -1; }
+  #tonal-site-v2 .ti-midi-reading { grid-column: 1; }
+  #tonal-site-v2 .ti-track-meta { grid-column: 2; }
+}
 @media (max-width: 480px) {
-  #tonal-site-v2 .ti-midi-toolbar { grid-template-columns: minmax(0, 1fr) auto auto; gap: 0 8px; }
-  #tonal-site-v2 .ti-midi-label { grid-column: 1; grid-row: 1; }
-  #tonal-site-v2 .ti-playback-notes { grid-column: 1; grid-row: 2; }
-  #tonal-site-v2 .ti-playback-toggle { grid-column: 2; grid-row: 1 / 3; }
-  #tonal-site-v2 .ti-sound-toggle { grid-column: 3; grid-row: 1 / 3; }
+  #tonal-site-v2 .ti-mode-sound { width: 100%; }
+  #tonal-site-v2 .ti-mode-sound .ti-modes { flex: 1; width: auto; min-width: 0; }
+  #tonal-site-v2 .ti-mode-sound .ti-mode { padding-inline: 4px; white-space: nowrap; }
 }
 
 #tonal-site-v2 .ti-expanded-values, #tonal-site-v2 .ti-compact-values { position: absolute; top: 0; left: 50%; width: var(--ti-native-width); height: calc(var(--ti-native-width) * 208 / 680); transform: translateX(-50%); pointer-events: none; }
 #tonal-site-v2 .ti-expanded-values img, #tonal-site-v2 .ti-compact-values img { display: block; position: absolute; max-width: none; height: auto; }
-#tonal-site-v2 .ti-track-bar { padding-bottom: 16px; margin-bottom: 8px; border-bottom: 1px solid var(--ti-line); }
-#tonal-site-v2 .ti-track-meta { min-width: 0; }
+#tonal-site-v2 .ti-track-meta { min-width: 0; max-width: 20rem; text-align: right; }
 #tonal-site-v2 .ti-track-title { color: var(--ti-text); font-size: 16px; line-height: 24px; font-weight: 500; }
 #tonal-site-v2 .ti-track-credit { margin-top: 4px; color: var(--ti-secondary); font-size: 13px; line-height: 20px; }
-#tonal-site-v2 .ti-track-source { text-decoration: underline; text-underline-offset: 3px; }
+#tonal-site-v2 .ti-track-source { color: var(--ti-focus); text-decoration: underline; text-underline-offset: 3px; }
 #tonal-site-v2 .ti-track-source:hover { color: var(--ti-text); }
+
+@media (prefers-contrast: more) {
+  #tonal-site-v2 { --ti-line: #86868b; --ti-line-strong: #a1a1a6; --ti-secondary: #d1d1d6; }
+}
