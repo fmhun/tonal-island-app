@@ -282,15 +282,10 @@ function islandSurfacePath(width, height, progress, scale) {
 
   function save() {
     const dyad = dyads[Math.max(currentDyad, 0)];
-    const notation = {
-      noteNames: root.querySelector('#ti-config-language').value,
-      intervalNames: root.querySelector('#ti-config-naming').value,
-      octaves: root.querySelector('#ti-config-octaves').checked
-    };
     writeSiteState({modelContent:{
       mode:mode === 'island' ? 'Dynamic Island' : 'Menu bar', expanded,
       notes:[dyad.fromNote,dyad.toNote], interval:dyad.interval,
-      playing, sound:soundEnabled, melody:melody.title, melodyId:melody.id, composer:melody.composer, notation
+      playing, sound:soundEnabled, melody:melody.title, melodyId:melody.id, composer:melody.composer
     },privateContent:{revision:++stateRevision}});
   }
 
@@ -303,37 +298,27 @@ function islandSurfacePath(width, height, progress, scale) {
     panel.setAttribute('aria-labelledby', 'ti-mode-' + mode);
     [trigger,status].forEach(button => button.setAttribute('aria-expanded', String(expanded)));
     trigger.setAttribute('aria-label', expanded ? 'Close Tonal Island' : 'Open Tonal Island');
+    status.setAttribute('aria-label', `${expanded ? 'Close' : 'Open'} Tonal Island in the menu bar`);
   }
 
   function renderSurface() {
     const nativeWidth = Math.min(680, stage.clientWidth - 16);
     const scale = nativeWidth / 680;
-    const compactWidth = mode === 'menu' ? 340 : 429;
-    const width = (compactWidth + (680 - compactWidth) * progress) * scale;
-    const height = (32 + 176 * progress) * scale;
-    let offset = 0;
+    const menu = mode === 'menu';
+    const width = menu ? nativeWidth : (429 + (680 - 429) * progress) * scale;
+    const height = (menu ? 208 * progress : 32 + 176 * progress) * scale;
     surface.style.width = width + 'px';
     surface.style.height = height + 'px';
     trigger.style.width = (mode === 'island' && progress === 0 ? 185 * scale : width) + 'px';
     trigger.style.height = height + 'px';
-    if (mode === 'menu') {
-      const stageBounds = stage.getBoundingClientRect();
-      const anchorBounds = status.getBoundingClientRect();
-      const anchor = anchorBounds.left - stageBounds.left + anchorBounds.width / 2;
-      const compact = compactWidth * scale;
-      const expandedCenter = Math.max(8 + nativeWidth / 2, Math.min(stage.clientWidth - 8 - nativeWidth / 2, anchor));
-      const compactCenter = Math.max(8 + compact / 2, Math.min(stage.clientWidth - 8 - compact / 2, anchor));
-      const center = compactCenter + (expandedCenter - compactCenter) * progress;
-      const right = stage.clientWidth - center - width / 2;
-      surface.style.right = trigger.style.right = right + 'px';
-      offset = expandedCenter - center;
-    } else surface.style.right = trigger.style.right = '';
-    content.style.clipPath = `path('${islandSurfacePath(width, height, progress, scale)}')`;
-    backdrop.style.opacity = String(progress);
+    surface.style.right = trigger.style.right = menu ? '0px' : '';
+    content.style.clipPath = menu
+      ? `inset(0 round 0 0 ${24 * scale}px ${24 * scale}px)`
+      : `path('${islandSurfacePath(width, height, progress, scale)}')`;
+    backdrop.style.opacity = menu ? '1' : String(progress);
     expandedImage.style.opacity = expandedValues.style.opacity = String(contentOpacity);
-    expandedImage.style.marginLeft = expandedValues.style.marginLeft = offset + 'px';
     const reveal = Math.min(Math.max((progress - 0.02) / 0.26, 0), 1);
-    const compactOpacity = 1 - reveal * reveal * (3 - 2 * reveal);
+    const compactOpacity = menu ? 0 : 1 - reveal * reveal * (3 - 2 * reveal);
     compactImage.style.opacity = compactValues.style.opacity = String(compactOpacity);
     compactImage.style.filter = compactValues.style.filter = `blur(${(1 - compactOpacity) * 3 * scale}px)`;
     positionValues();
@@ -672,7 +657,6 @@ function islandSurfacePath(width, height, progress, scale) {
       setOpen(false);
     }
   });
-  root.addEventListener('ti:notation-change', save);
 
   function restore(saved) {
     const value = saved && (saved.modelContent || saved);
@@ -728,54 +712,6 @@ function islandSurfacePath(width, height, progress, scale) {
     playbackButton.disabled = false;
     manageAutoplay();
   }).catch(() => { playbackButton.textContent = 'Demo unavailable'; });
-})();
-
-(() => {
-  const root = document.getElementById('tonal-site-v2');
-  if (!root) return;
-
-  const section = root.querySelector('.ti-configuration');
-  if (!section) return;
-
-  const language = section.querySelector('#ti-config-language');
-  const naming = section.querySelector('#ti-config-naming');
-  const octaves = section.querySelector('#ti-config-octaves');
-  const notesPreview = section.querySelector('[data-ti-config-notes]');
-  const intervalPreview = section.querySelector('[data-ti-config-interval]');
-  if (!language || !naming || !octaves || !notesPreview || !intervalPreview) return;
-
-  const intervalNames = {
-    short: 'M3',
-    english: 'major 3rd',
-    french: 'tierce majeure'
-  };
-
-  function updatePreview() {
-    const notes = language.value === 'latin' ? ['Do', 'Mi'] : ['C', 'E'];
-    const octave = octaves.checked ? '4' : '';
-    notesPreview.textContent = `${notes[0]}${octave} → ${notes[1]}${octave}`;
-    intervalPreview.textContent = intervalNames[naming.value] || intervalNames.english;
-  }
-
-  [language, naming, octaves].forEach(control => {
-    control.addEventListener('change', () => {
-      updatePreview();
-      root.dispatchEvent(new CustomEvent('ti:notation-change'));
-    });
-  });
-
-  function restore(saved) {
-    const content = saved && (saved.modelContent || saved);
-    const notation = content && content.notation;
-    if (!notation) return;
-    if (['english', 'latin'].includes(notation.noteNames)) language.value = notation.noteNames;
-    if (Object.hasOwn(intervalNames, notation.intervalNames)) naming.value = notation.intervalNames;
-    if (typeof notation.octaves === 'boolean') octaves.checked = notation.octaves;
-    updatePreview();
-  }
-
-  restore(readSiteState());
-  updatePreview();
 })();
 
 })();

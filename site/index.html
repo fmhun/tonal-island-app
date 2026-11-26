@@ -13,9 +13,9 @@
   <meta property="og:url" content="https://fmhun.github.io/tonal-island-app/">
   <link rel="canonical" href="https://fmhun.github.io/tonal-island-app/">
   <link rel="icon" type="image/png" href="./favicon.png">
-  <link rel="stylesheet" href="./assets/site.css">
-  <script type="module" src="./assets/demo.js"></script>
-  <script type="module" src="./assets/downloads.js?v=2"></script>
+  <link rel="stylesheet" href="./assets/site.css?v=2">
+  <script type="module" src="./assets/demo.js?v=2"></script>
+  <script type="module" src="./assets/downloads.js?v=3"></script>
 </head>
 <body>
 <div id="tonal-site-v2" aria-label="Tonal Island">
@@ -26,7 +26,7 @@
         <span>Tonal Island</span>
       </a>
       <nav class="ti-nav" aria-label="Main navigation">
-        <a href="https://github.com/fmhun/tonal-island-app" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/fmhun/tonal-island-app/issues" target="_blank" rel="noopener noreferrer">Requests &amp; bug reports</a>
       </nav>
     </header>
     <main>
@@ -110,7 +110,7 @@
           </div>
         </div>
       </section>
-      <section class="ti-philosophy" aria-labelledby="ti-philosophy-title">
+      <section class="ti-philosophy ti-info-section" aria-labelledby="ti-philosophy-title">
         <h2 id="ti-philosophy-title">See the notes and intervals you play.</h2>
         <div class="ti-philosophy-copy">
           <p>Tonal Island makes the notes and intervals you play visible, helping you connect what you hear with music theory.</p>
@@ -121,87 +121,47 @@
           </aside>
         </div>
       </section>
-      <section class="ti-configuration" aria-labelledby="ti-configuration-title">
-  <header class="ti-config-header">
-    <h2 id="ti-configuration-title">Configure your reading.</h2>
-    <p>Choose the notation and the notes you want to follow.</p>
-  </header>
-
-  <div class="ti-config-layout">
-    <div class="ti-config-preview-panel">
-      <p class="ti-config-preview-label">Notation preview</p>
-      <div class="ti-config-preview" role="status" aria-live="polite" aria-atomic="true">
-        <p class="ti-config-preview-notes" data-ti-config-notes>C4 → E4</p>
-        <p class="ti-config-preview-interval" data-ti-config-interval>major 3rd</p>
-      </div>
-
-      <div class="ti-config-controls">
-        <div class="ti-config-field">
-          <label for="ti-config-language">Note names</label>
-          <div class="ti-config-select">
-            <select id="ti-config-language" class="cursor-interaction" name="ti-config-language">
-              <option value="english" selected>English</option>
-              <option value="latin">Latin</option>
-            </select>
+      <section class="ti-configuration ti-info-section" aria-labelledby="ti-configuration-title">
+        <h2 id="ti-configuration-title">Configure your reading.</h2>
+        <div class="ti-config-content">
+          <p class="ti-config-intro">Choose the notation and the notes you want to follow.</p>
+          <div class="ti-config-capabilities">
+            <div class="ti-config-row">
+              <div class="ti-config-row-heading">
+                <h3>Intervals</h3>
+                <p class="ti-config-example">Chromatic · Diatonic</p>
+              </div>
+              <p class="ti-config-row-body">Choose the reading and use short, English or French interval names.</p>
+            </div>
+            <div class="ti-config-row">
+              <div class="ti-config-row-heading">
+                <h3>Note names</h3>
+                <p class="ti-config-example">C D E · Do Ré Mi</p>
+              </div>
+              <p class="ti-config-row-body">Choose sharps or flats and show octave numbers when useful.</p>
+            </div>
+            <div class="ti-config-row">
+              <div class="ti-config-row-heading">
+                <h3>Note tracking</h3>
+                <p class="ti-config-example">Played · Distinct · Held</p>
+              </div>
+              <p class="ti-config-row-body">Compare the last two notes, skip immediate repeats, or follow held notes.</p>
+            </div>
+            <div class="ti-config-row">
+              <div class="ti-config-row-heading">
+                <h3>MIDI input</h3>
+                <p class="ti-config-example">Channels 1–16 · Minimum velocity</p>
+              </div>
+              <p class="ti-config-row-body">Choose which MIDI messages reach the analysis.</p>
+            </div>
           </div>
         </div>
-
-        <div class="ti-config-field">
-          <label for="ti-config-naming">Interval names</label>
-          <div class="ti-config-select">
-            <select id="ti-config-naming" class="cursor-interaction" name="ti-config-naming">
-              <option value="short">Short</option>
-              <option value="english" selected>English</option>
-              <option value="french">French</option>
-            </select>
-          </div>
-        </div>
-
-        <label class="ti-config-checkbox cursor-interaction" for="ti-config-octaves">
-          <input id="ti-config-octaves" class="cursor-interaction" name="ti-config-octaves" type="checkbox" checked />
-          <span>Octave numbers</span>
-        </label>
-      </div>
-    </div>
-
-    <div class="ti-config-capabilities">
-      <div class="ti-config-row">
-        <div class="ti-config-row-heading">
-          <h3>Intervals</h3>
-          <p class="ti-config-example">Chromatic · Diatonic</p>
-        </div>
-        <p class="ti-config-row-body">Choose the reading and use short, English or French interval names.</p>
-      </div>
-      <div class="ti-config-row">
-        <div class="ti-config-row-heading">
-          <h3>Note names</h3>
-          <p class="ti-config-example">C D E · Do Ré Mi</p>
-        </div>
-        <p class="ti-config-row-body">Choose sharps or flats and show octave numbers when useful.</p>
-      </div>
-      <div class="ti-config-row">
-        <div class="ti-config-row-heading">
-          <h3>Note tracking</h3>
-          <p class="ti-config-example">Played · Distinct · Held</p>
-        </div>
-        <p class="ti-config-row-body">Compare the last two notes, skip immediate repeats, or follow held notes.</p>
-      </div>
-      <div class="ti-config-row">
-        <div class="ti-config-row-heading">
-          <h3>MIDI input</h3>
-          <p class="ti-config-example">Channels 1–16 · Minimum velocity</p>
-        </div>
-        <p class="ti-config-row-body">Choose which MIDI messages reach the analysis.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
 
     </main>
   </div>
 </div>
 
-<footer class="site-footer"><a href="./installation.html">Installation</a><span aria-hidden="true"> · </span><a href="./music-credits.html">Music credits</a></footer>
 </body>
 </html>
